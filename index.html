@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css" />
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css" />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel = "stylesheet" href = "custom.css" />
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views, and they are tabs-->
+    <!-- We need to set "toolbar-through" class on it to keep space for our tab bar-->
+    <div class="views tabs toolbar-through">
+
+      <!--  =========================================================================================================================================  -->
+      <!--                                                          WELCOME VIEW                                                                       -->
+      <!--  =========================================================================================================================================  -->
+      
+      <div id="view-1" class="view view-main tab active">
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+
+
+              
+              <div class="content-block">
+                <div class="navbar">
+                  <div class="navbar-fixed" >
+                  <center>WELCOME TO YOUR STUDY TIME</center>
+                  </div>
+                </div>
+                <img src="img/student.png"  style=" margin-left: auto; margin-right: auto; display: block; width: 37%; height: 37%">
+                <p style="text-align: center;">This application you to log when need to study, setting subjects and time</p>
+                <p style="text-align: center;">Also other students can study sessions creating study groups with ease</p>
+                <!--<p>And of course, your favorite panels are still here: <a href="#" class="open-panel">left</a> and  <a href="#" data-panel="right" class="open-panel">right</a>  </p>-->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--  =========================================================================================================================================  -->
+      <!--                                                          Summary View                                                                       -->
+      <!--  =========================================================================================================================================  -->
+
+      <div id="view-2" class="view tab">
+        <!-- We can make with view with navigation, let's add Top Navbar-->
+
+        <div class="list-block">
+
+          
+          <ul>
+            <!--                                SUBJECT                                    -->
+            <li class="item-content">
+              <div class="item-media"><i class="material-icons md-48">assignment</i></div>
+              
+              <div class="item-inner">
+                <div class="item-title">SUBJECT</div>
+                <div class="item-after"><div id="subje"></div><p><a href="#" class="create-popup">More Info</a></p></div>
+              </div>
+            </li>
+          <!--                                DATE & TIME                                -->
+            <li class="item-content">
+              <div class="item-media"><i class="material-icons md-48">event_available</i></div>
+              
+              <div class="item-inner">
+                <div class="item-title">DATE AND TIME</div>
+                <div class="item-after"><div id="tiempo"></div><p><a href="#" class="create-popup">More Info</a></p></div>
+              </div>
+            </li>
+
+            <!--                                ROOM                                     -->
+            <li class="item-content">
+              <div class="item-media"><i class="material-icons md-48">local_library</i></div>
+              
+              <div class="item-inner">
+                <div class="item-title">ROOM</div>
+                <div class="item-after"><div id="salon"></div><p><a href="#" class="create-popup">More Info</a></p></div>
+              </div>
+            </li>
+
+          <!--                                PARTNER                                    -->
+            <li class="item-content">
+              <div class="item-media"><i class="material-icons md-48">person</i></div>
+              
+              <div class="item-inner">
+                <div class="item-title">PARTNER</div>
+                <div class="item-after"><div id="estudiante"></div><p><a href="#" class="create-popup">More Info</a></p></div>
+              </div>
+            </li>
+
+            <!--                                COMMENT                                  -->
+            <li class="item-content">
+              <div class="item-media"><i class="material-icons md-48">comment</i></div>
+              
+              <div class="item-inner">
+                <div class="item-title">COMMENTS</div>
+                <div class="item-after"><div id="comentario"></div><p><a href="#" class="create-popup">More Info</a></p></div>
+              </div>
+            </li>
+
+          </ul>
+            <li>
+              <div id="container" class = "row">
+                <div class = "col-50"><a href = "#" style=" margin-left: auto; margin-right: auto; display: block; width: 27%;" class = "button button-big button-fill color-red" onclick="ClearFields();">Delete</a></div>
+              </div>     
+            </li> 
+        </div> 
+      </div>
+
+
+      <!--  =========================================================================================================================================  -->
+      <!--                                                           Student Area                                                                      -->
+      <!--  =========================================================================================================================================  -->
+         <div id="view-3" class="view tab">
+          <div class="pages">
+            <div data-page="index-3" class="page">
+              <div class="page-content">
+                <div class="content-block-title">Study Timetable</div>
+                <div class="content-block">
+                  <h1>Student Area</h1>
+                  <p>This section will allow you to select subjects you want to study, set date and time as well as adding partners to your study sessions.    </p>
+
+                <div class="content-block-title">Subjects</div>
+                <div class="list-block"> <!-- Subject Selection -->
+                  <ul>
+                    <!-- Smart select item -->
+                    <li>
+                      <!-- Additional "smart-select" class -->
+                      <a href="#" class="item-link smart-select">
+                        <!-- select -->
+                        <select id = "sub" class="fruits" onchange="myFunction();">
+                          <option value="Mobile Development" selected>Mobile Development</option>
+                          <option value="Creative Digital Media">Creative Digital Media</option>
+                          <option value="Maths for Computing">Maths for Computing</option>
+                          <option value="Computer Programming">Computer Programming</option>
+                          <option value="Data Communications">Data Communications</option>
+                        
+                        </select>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <!-- Select label -->
+                            <div class="item-title">Select Subjects</div>
+                            <!-- Selected value, not required -->
+                            <!-- <div class="item-after"></div>-->
+                          </div>
+                        </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div><!-- Select Subject block --> 
+
+
+                  <div class="content-block-title">Date and time</div>
+                  <div class="list-block"> <!-- Date Selection -->
+                    <ul>
+                      <li>
+                        <div class = "item-content">
+                          <div class = "item-inner">
+                            
+                            <input type = "text" placeholder = "Select a date and type in time"/>
+                            <input id="fecha" type="datetime-local">
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div><!-- Select Subject block -->
+
+                
+             
+                  <div class="content-block-title">ROOMS</div>
+                  <div class="list-block"> <!-- Room Selection -->
+
+                    <ul>
+                    <!-- Smart select item -->
+                    <li>
+                      <!-- Additional "smart-select" class -->
+                      <a href="#" class="item-link smart-select">
+                        <!-- select -->
+                        <select id="rum" name="fruits">
+                          <option value="Mobile Development Room" selected>Mobile Development Room</option>
+                          <option value="Creative Digital Media Room">Creative Digital Media Room</option>
+                          <option value="Maths for Computing Room">Maths for Computing Room</option>
+                          <option value="Computer Programming Room">Computer Programming Room</option>
+                          <option value="Data Communications Room">Data Communications Room</option>
+                        
+                        </select>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <!-- Select label -->
+                            <div class="item-title">Rooms</div>
+                            <!-- Selected value, not required -->
+                            <!-- <div class="item-after"></div>-->
+                          </div>
+                        </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!--...............Add Student ..................................-->
+                  <div class = "content-block-title">Add Students</div>
+              
+                  <div class="list-block"> <!-- Subject Selection -->
+                    <ul>
+                      <!-- Smart select item -->
+                      <li>
+                        <!-- Additional "smart-select" class -->
+                        <a href="#" class="item-link smart-select">
+                          <!-- select -->
+                          <select id="est" name="fruits">
+                            <option value="Mark" selected>Mark</option>
+                            <option value="John">John</option>
+                            <option value="Aoife">Aoife</option>
+                            <option value="Sara">Sara</option>
+                            <option value="Nathan">Nathan</option>
+                          
+                          </select>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <!-- Select label -->
+                              <div class="item-title">Select Subjects</div>
+                              <!-- Selected value, not required -->
+                              <!-- <div class="item-after"></div>-->
+                            </div>
+                          </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div><!-- Select Subject block --> 
+
+
+
+                    <div class="content-block-title">Comments</div>
+                    <div class="list-block"> <!-- Comments -->
+                    <ul>
+                      <li>
+                        <div class = "item-content">
+                          <div class = "item-inner">
+                            <div class = "item-title label">Leave a Comment</div>
+                              <div class = "item-input">
+                                <input id="come" type = "text" name = "name" placeholder = "Enter your Comments">
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                      
+
+                      <div class="list-block">
+
+                      <ul>
+                      <li>
+                        <div class = "item-content">
+                          <div class = "item-inner">
+                            <div class = "item-title label">Time</div>
+
+                            <div class="item-input">
+                              
+                            </div>
+                              
+                          </div>
+                        </div>
+                      </li>
+                    </ul> 
+                      
+                    </div>
+
+
+                      
+                      <div class = "content-block">
+                        <div class = "row">
+                           <div class = "col-50"><a href = "#" style=" margin-left: auto; margin-right: auto; display: block; width: 27%;" class = "button button-big button-fill color-blue" onclick="store(); storeT(); storeR(); storeS(); storeC();">Submit</a></div>
+                           <div class = "col-50"><a href = "#" style=" margin-left: auto; margin-right: auto; display: block; width: 27%;" class = "button button-big button-fill color-red" onclick="ClearFields();">Cancel</a></div>
+
+                        </div>
+                     </div>
+
+                </div><!-- Select block --> 
+
+
+                  
+
+
+            
+              </div><!-- Content Block -->
+            </div> <!-- Page Content -->
+          </div><!-- index 3-->
+        </div><!-- Pages -->
+
+
+
+      </div><!-- Student Arear -->
+
+
+
+      <!--  =========================================================================================================================================  -->
+      <!--                                                                    LOGIN                                                                    -->
+      <!--  =========================================================================================================================================  -->
+      
+
+      <div id="view-4" class="view tab" >
+
+
+          <div class="login-screen">
+            <div class="view">
+              <div class="page">
+                <div class="page-content login-screen-content">
+                <div class="login-screen-title">Login</div>
+                  <form action="pageb.php" method="get">
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Student Name</div>
+                        <div class="item-input">
+                          <input type="text" name="name" placeholder="Student Name">
+                        </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Password</div>
+                          <div class="item-input">
+                          <input type="password" name="password" placeholder="Student password">
+                          </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              <div class="list-block">
+                <ul>
+                  <li><a href="#" class="item-link list-button"><??Login</a></li>
+                </ul>
+                  <div class="list-block-label">
+                    <p>Login</p>
+                    <p><a href="#" class="close-login-screen">Close Login Screen</a></p>
+                  </div>
+              </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div> <!-- view-4  Login -->
+
+    
+      <!--  =========================================================================================================================================  -->
+      <!--                                                          BOTTOM TAB BAR                                                                     -->
+      <!--  =========================================================================================================================================  -->
+      <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+
+          <a href="#view-1" class="tab-link active"><i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">Home</span></a>
+          <a class="open-login-screen tab-link"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">Login</span></a>
+          <a href="#view-3" class="tab-link"><i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Sessions</span></a>
+          <a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Summary</span></a>
+
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+
+    <!--  Time Picker Style -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+   <style>.swiper-slide{background:#fff;box-sizing:border-box;border:1px solid #ccc;line-height:120px;text-align:center;}.swiper-slide span{font-size:17px;}.swiper-container{height:120px;margin:0px 0 px;}</style>
+   <style>#picker-date-container .picker-item{color:#999;}#picker-date-container .picker-selected{color:#000;}@media (max-width: 767px) {#picker-date-container .picker-items{font-size:21px;}#picker-date-container .picker-item{height:36px;line-height:36px;padding:0 6px;}}</style>
+      
+    <!-- Calendar Picker -->
+      <script>
+         var myApp = new Framework7();
+         // With custom date format
+         var calendarDateFormat = myApp.calendar({
+            input: '#calendar-date-format',
+            dateFormat: 'DD, dd MM, yyyy'
+         });
+         
+      </script>
+
+    <!--  Delete -->
+   <script>
+      function ClearFields() {
+
+       document.getElementById("sub").value = "";
+       document.getElementById("fecha").value = "";
+       document.getElementById("rum").value = "";
+       document.getElementById("est").value = "";
+       document.getElementById("come").value = "";
+
+       
+      }
+
+   </script>
+
+   <script>
+     $('#container').on('click', 'button', function() {
+      document.getElementById("sub").value = "";
+      document.getElementById("fecha").value = "";
+       document.getElementById("rum").value = "";
+       document.getElementById("est").value = "";
+       document.getElementById("come").value = "";
+      });
+
+   </script>
+
+
+   <script>
+      //LocalStorage function
+            myFunction(){
+                    var select = document.querySelector(".fruits");
+                    var selectOption = select.options[select.selectedIndex];
+                    var lastSelected = localStorage.getItem('select');
+
+                    if(lastSelected) {
+                        select.value = lastSelected; 
+                    }
+
+                    select.onchange = function () {
+                       lastSelected = select.options[select.selectedIndex].value;
+                       console.log(lastSelected);
+                       localStorage.setItem('select', "lastSelected");
+
+
+                    }
+
+
+            }
+
+              
+
+  </script>
+
+
+<!-- __________________ DISPLAY SELECTIONS ___________________________________-->
+
+
+<!-- __________________ DISPLAY SUBJECT ___________________________________-->
+  <script>
+
+                        function store(){
+                          var v = document.getElementById('sub').value;
+
+                          document.getElementById('subje').innerHTML = v;
+                          //console.log('test' + v);
+                        }
+
+  </script>
+<!-- __________________ DISPLAY DATE & TIME ___________________________________-->
+  <script>
+
+                        function storeT(){
+                          var t = document.getElementById('fecha').value;
+
+                          document.getElementById('tiempo').innerHTML = t;
+                          //console.log('test' + v);
+                        }
+
+  </script>
+<!-- __________________ DISPLAY ROOMS  ___________________________________-->
+  <script>
+
+                        function storeR(){
+                          var r = document.getElementById('rum').value;
+
+                          document.getElementById('salon').innerHTML = r;
+                          //console.log('test' + v);
+                        }
+
+  </script>
+
+
+<!-- __________________ DISPLAY STUDENTS  ___________________________________-->
+  <script>
+
+                        function storeS(){
+                          var s = document.getElementById('est').value;
+
+                          document.getElementById('estudiante').innerHTML = s;
+                          //console.log('test' + v);
+                        }
+
+  </script>
+
+  <!-- __________________ DISPLAY COMMENTS  ___________________________________-->
+  <script>
+
+                        function storeC(){
+                          var c = document.getElementById('come').value;
+
+                          document.getElementById('comentario').innerHTML = c;
+                          //console.log('test' + v);
+                        }
+
+  </script>
+
+  <script>
+    var myApp = new Framework7();
+ 
+    var $$ = Dom7;
+     
+      $$('.create-popup').on('click', function () {
+        var popupHTML = '<div class="popup">'+
+                          '<div class="content-block">'+
+                            '<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>'+
+                            '<p><a href="#" class="close-popup">Close</a></p>'+
+                          '</div>'+
+                        '</div>'
+        myApp.popup(popupHTML);
+      });          
+  </script>
+
+
+
+      
+  </body>
+</html>
